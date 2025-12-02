@@ -37,28 +37,28 @@ Even though this is not a practical requirement of the task, I will write unit t
 - Instead, it is the number of times the dial is left pointing at 0.
 
 **What I Need**
-- A method to gather the rotation sequence
-  - a "rotation" class containing a left/right boolean, and a distance.
-  - an array of these classes
-  - a method to search through a string of sequences
-    - take the first character. Set direction based on R/L.
-      - if I use a char byte for this, I can just steal the character itself
-    - take the next character, hold onto it.
-    - take the next character.
-      - if it is a newline: get the integer of the held character and put it into the class. continue loop
-      - if it is not: add the character to the string, get that number, skip over the predicted newline & continue the loop
+A method to gather the rotation sequence
+- a "rotation" class containing a left/right boolean, and a distance.
+- an array of these classes
+- a method to search through a string of sequences
+ - take the first character. Set direction based on R/L.
+  - if I use a char byte for this, I can just steal the character itself
+ - take the next character, hold onto it.
+ - take the next character.
+  - if it is a newline: get the integer of the held character and put it into the class. continue loop
+  - if it is not: add the character to the string, get that number, skip over the predicted newline & continue the loop
 
-- A "combination lock" class
-  - Holds an integer state
-  - a method for rotating it left / right by an amount, careful to cross over minimum and maximum.
+A "combination lock" class
+- Holds an integer state
+- a method for rotating it left / right by an amount, careful to cross over minimum and maximum.
 
-- A rotator method
-  - feed array of rotations through safe
-  - gather return state of safe. if 0, increase a count.
-  - return the 0 count, and the ending state just for fun (and testing).
+A rotator method
+- feed array of rotations through safe
+- gather return state of safe. if 0, increase a count.
+- return the 0 count, and the ending state just for fun (and testing).
 
 **Potential Problem**
-- What if the puzzle input has rotations with larger digit numbers like L08429380?
+What if the puzzle input has rotations with larger digit numbers like L08429380?
 - I will need to change my string reading algorithm to only stop at a newline, instead of at two digits.
 - This might be cleaner anyway, I think I will just implement it like this from the start.
 - I am going to try to write this solution *before* looking at the puzzle input. I may do this differently for later puzzles.
