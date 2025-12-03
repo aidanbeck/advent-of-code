@@ -76,3 +76,18 @@ I decided to refactor, and it made my implementation of CombinationLock cleaner 
 I could just apply the integer directly to the pointingAt value, instead of discerning between left and right turns.
 I still am figuring out the syntax of Kotlin. I like being neat and concise, but am sure that will come with familiarity.
 
+I implemented the solver, and I got... 1043. And it's correct!
+
+
+**Part Two**
+- using the same rotations, don't *just* count whenever it ends at 0.
+- also count each time it crosses over zero
+
+I already have a correction implemented for when the dial goes around zero.
+Maybe this will be as simple as incrementing my count each time those activate.
+I will introduce a new value for it though, so that I retain the ability to solve Part 1.
+
+Some time later: It is not so easy. My test cases pass, but my solution is incorrect.
+I suspect I am not handling an edge case where the dial starts or ends on a 0, and loops around across a zero or back onto it.
+Tomorrow, I think I will change my CombinationLock implementation to be more literal, and do away with applying the rotation and correcting the number down after the fact.
+I think that part of my implementation is the problem. It sounds crude, but incrementing the dial by one for each rotation may fix this.

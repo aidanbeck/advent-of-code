@@ -47,7 +47,7 @@ L82""" // I hate this formatting! STUDY how can I format multi-line strings in c
     }
 
     @Test
-    fun testCombinationLockZeroCounter() {
+    fun testCombinationLockStopsAtZeroCounter() {
         val combinationLock = CombinationLock()
 
         combinationLock.rotate(-50) // 0
@@ -56,9 +56,8 @@ L82""" // I hate this formatting! STUDY how can I format multi-line strings in c
         combinationLock.rotate(-10) // 0
         combinationLock.rotate(-10) // -10
         combinationLock.rotate(10)  // 0
-        println(combinationLock.pointingAt)
 
-        assertEquals(3, combinationLock.atZeroCount)
+        assertEquals(3, combinationLock.stopsAtZeroCount)
     }
 
     @Test
@@ -71,10 +70,29 @@ L10
 L10
 R10"""
 
-        val atZeroCount = SecretEntrance().solvePuzzle(puzzleString)
+        val stopsAtZeroCount = SecretEntrance().solvePuzzle(puzzleString)
 
-        assertEquals(3, atZeroCount)
+        assertEquals(3, stopsAtZeroCount)
 
+    }
+
+    @Test
+    fun testCombinationLockAllZerosCounter() {
+        val combinationLock = CombinationLock()
+
+
+        combinationLock.rotate(-68) // +1
+        combinationLock.rotate(-30) // +0
+        combinationLock.rotate(48)  // +1
+        combinationLock.rotate(-5)  // +0
+        combinationLock.rotate(60)  // +1
+        combinationLock.rotate(-55) // +1
+        combinationLock.rotate(-1)  // +0
+        combinationLock.rotate(-99) // +1
+        combinationLock.rotate(14)  // +0
+        combinationLock.rotate(-82) // +1
+
+        assertEquals(6, combinationLock.crossedZeroCount)
     }
 
 }

@@ -39,29 +39,54 @@ class SecretEntrance {
             combinationLock.rotate(rotation)
         }
 
-        return combinationLock.atZeroCount
+        //return combinationLock.stopsAtZeroCount // Part One
+        return combinationLock.crossedZeroCount // Part Two
     }
 }
 
 class CombinationLock {
     var pointingAt = 50
-    var atZeroCount = 0
+    var stopsAtZeroCount = 0
+    var crossedZeroCount = 0
     val minInteger = 0
     val maxInteger = 99
 
+    var startedFromZero = false
+
     fun rotate(rotation: Int) {
+
+        if (pointingAt == 0) { // if a rotation started on zero, don't increment crossedCount until it's already crossed around again.
+            startedFromZero = true
+        } else {
+            startedFromZero = false
+        }
+
         pointingAt += rotation
+
 
         while (pointingAt > maxInteger) {
             pointingAt -= maxInteger + 1
+
+            if (pointingAt != 0 && !startedFromZero) { // avoid double counting when it crosses over AND lands on zero
+                crossedZeroCount++
+            }
+
+            startedFromZero = false // now that it has passed off zero, let it have the possibility to count on the next loop
         }
 
         while (pointingAt < minInteger) {
             pointingAt += maxInteger + 1
+
+            if (pointingAt != 0 && !startedFromZero) {
+                crossedZeroCount++
+            }
+
+            startedFromZero = false
         }
 
         if (pointingAt == 0) {
-            atZeroCount++
+            stopsAtZeroCount++
+            crossedZeroCount++
         }
     }
 }
