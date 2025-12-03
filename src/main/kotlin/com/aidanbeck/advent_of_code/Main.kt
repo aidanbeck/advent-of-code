@@ -4111,6 +4111,6 @@ L49
 L43"""
 
     val secretEntrance = SecretEntrance()
-    val solution = secretEntrance.solvePuzzle(puzzleString)
+    val solution = secretEntrance.solvePuzzle(puzzleString, 2)
     println("The solution is: " + solution)
 }

@@ -61,7 +61,7 @@ L82""" // I hate this formatting! STUDY how can I format multi-line strings in c
     }
 
     @Test
-    fun testSecretEntranceSolvePuzzle() {
+    fun testSecretEntranceSolvePartOne() {
         val puzzleString =
 """L50
 R5
@@ -70,7 +70,7 @@ L10
 L10
 R10"""
 
-        val stopsAtZeroCount = SecretEntrance().solvePuzzle(puzzleString)
+        val stopsAtZeroCount = SecretEntrance().solvePuzzle(puzzleString, 1)
 
         assertEquals(3, stopsAtZeroCount)
 

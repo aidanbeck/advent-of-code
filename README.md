@@ -15,7 +15,7 @@ Even if I solve it completely by myself, I may still go back and watch the steam
 I also want to practice *Test Driven Development*.
 Even though this is not a practical requirement of the task, I will write unit tests for my puzzle solutions.
 
-## Day 1: *[Secret Entrance](https://adventofcode.com/2025/day/1)*
+## Day 1: *[Secret Entrance](https://adventofcode.com/2025/day/1)* Solved!
 
 **Puzzle Outline**
 - Goal: Find the password (to the North Pole).
@@ -91,3 +91,12 @@ Some time later: It is not so easy. My test cases pass, but my solution is incor
 I suspect I am not handling an edge case where the dial starts or ends on a 0, and loops around across a zero or back onto it.
 Tomorrow, I think I will change my CombinationLock implementation to be more literal, and do away with applying the rotation and correcting the number down after the fact.
 I think that part of my implementation is the problem. It sounds crude, but incrementing the dial by one for each rotation may fix this.
+
+12/3/25
+I solved it! Changing the implementation gave me 5963 and worked. I really enjoy unit testing, changing the implementation while keeping each feature saves so much time.
+There must have been an edge case with my previous implementation.
+It was more optimized and I could have fixed it, but considering optimization at the expense of the actual goal seems silly.
+Sleeping also did me good. I currently am home sick with Covid, so I wonder if that was affecting my problem-solving abilities.
+
+So far, my biggest displeasure with Kotlin is the weird for loop syntax.
+I'm very used to C styled for loops, but that's a superficial complaint and easy to get past.

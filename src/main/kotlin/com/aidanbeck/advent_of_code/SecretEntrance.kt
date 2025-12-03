@@ -29,7 +29,7 @@ class SecretEntrance {
         return rotationSequence.toTypedArray()
     }
 
-    fun solvePuzzle(puzzleString: String): Int {
+    fun solvePuzzle(puzzleString: String, part1or2: Int): Int {
 
         val rotations: Array<Int> = parseRotationSequence(puzzleString)
 
@@ -39,8 +39,12 @@ class SecretEntrance {
             combinationLock.rotate(rotation)
         }
 
-        //return combinationLock.stopsAtZeroCount // Part One
-        return combinationLock.hitZeroCount // Part Two
+        when (part1or2) {
+            1 -> return combinationLock.stopsAtZeroCount
+            2 -> return combinationLock.hitZeroCount
+            else -> throw Exception("Must input Part 1 or 2!")
+        }
+
     }
 }
 
