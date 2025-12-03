@@ -64,3 +64,10 @@ What if the puzzle input has rotations with larger digit numbers like L08429380?
 - I will need to change my string reading algorithm to only stop at a newline, instead of at two digits.
 - This might be cleaner anyway, I think I will just implement it like this from the start.
 - I am going to try to write this solution *before* looking at the puzzle input. I may do this differently for later puzzles.
+
+**12/2/24 Log**
+I've just implemented the rotation sequence separator as designed above, but now I am realizing something.
+There is no reason to store rotations as a distance *and* direction.
+Each rotation can be a single Integer, and the direction can exist as a positive or negative state. Left is negative, Right is positive.
+Do I continue and juggle the consequences of my design?
+Or do I refactor, even though it already works?

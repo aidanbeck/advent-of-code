@@ -16,8 +16,6 @@ internal class SecretEntranceTest {
     @Test
     fun testParseRotationSequence() {
 
-        val secretEntrance = SecretEntrance()
-
         val puzzleInput =
 """L68
 L30
@@ -30,22 +28,16 @@ L99
 R14
 L82""" // I hate this formatting! STUDY how can I format multi-line strings in code differently?
 
-        val desiredOutput = arrayOf(
-            Rotation('L', 68),
-            Rotation('L', 30),
-            Rotation('R', 48),
-            Rotation('L', 5),
-            Rotation('R', 60),
-            Rotation('L', 55),
-            Rotation('L', 1),
-            Rotation('L', 99),
-            Rotation('R', 14),
-            Rotation('L', 82),
-        )
-        val parsedSequence = secretEntrance.parseRotationSequence(puzzleInput)
+        val desiredOutput = arrayOf(-68, -30, 48, -5, 60, -55, -1, -99, 14, -82)
+        val parsedOutput = SecretEntrance().parseRotationSequence(puzzleInput)
 
-        assertContentEquals(parsedSequence, desiredOutput)
+        assertContentEquals(parsedOutput, desiredOutput)
     }
+
+//    @Test
+//    fun testCombinationLock() {
+//        val combinationLock = CombinationLock()
+//    }
 }
 
 /*

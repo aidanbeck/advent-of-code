@@ -6,11 +6,11 @@ class SecretEntrance {
         return a + 1
     }
 
-    fun parseRotationSequence(input: String): Array<Rotation> {
+    fun parseRotationSequence(input: String): Array<Int> {
 
-        var directionCharacter = '_'
+        var direction = 0
         var distanceCharacters = ""
-        val rotationSequence = ArrayList<Rotation>()
+        val rotationSequence = ArrayList<Int>()
 
         val puzzleString = input + '\n' // The data doesn't have a final newLine, so it's added. A bit hacky.
 
@@ -21,15 +21,12 @@ class SecretEntrance {
             when (character) {
                 '\n' -> {
                     val distance = distanceCharacters.toInt()
-
-                    rotationSequence.add(
-                        Rotation(directionCharacter, distance)
-                    )
-
                     distanceCharacters = "" // reset string for next rotation
+                    rotationSequence.add(distance * direction)
                 }
-                'R', 'L' -> {
-                    directionCharacter = character
+                'R' -> direction = 1
+                'L' -> {
+                    direction = -1
                 }
                 else -> {
                     // This is not safe and will assume any other character is a number.
@@ -43,7 +40,16 @@ class SecretEntrance {
     }
 }
 
+//class CombinationLock {
+//    var pointingAt = 50
+//    val minInteger = 0
+//    val maxInteger = 99
+//
+//    fun rotate()
+//}
+
 data class Rotation(
     val direction: Char, // 'L' or 'R'
     val distance: Int
 )
+
