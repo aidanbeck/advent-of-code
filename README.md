@@ -8,7 +8,9 @@ My goal is to solve as many of them as possible, but not necessarily on the day 
 As I write, it is already December 2nd.
 
 Conveniently, this year IntelliJ is [livestreaming](https://youtube.com/playlist?list=PLlFc5cFwUnmx9-VIcfxqhjHrwD3Lab4o4&si=v9J7AW-4XdhY-tEQ) their puzzle solving in Kotlin on their YouTube channel.
-My goal for this year is learning rather than compete, so I will be checking these out where I get completely stuck. I will write in my log when I do so, and note what I learn from it.
+My goal for this year is learning rather than compete, so I will be checking these out where I get completely stuck.
+I will write in my log when I do so, and note what I learn from it.
+Even if I solve it completely by myself, I may still go back and watch the steams to see what a best practice approach might have been, if I have the time.
 
 I also want to practice *Test Driven Development*.
 Even though this is not a practical requirement of the task, I will write unit tests for my puzzle solutions.
