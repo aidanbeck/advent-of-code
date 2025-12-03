@@ -44,4 +44,8 @@ internal class SecretEntranceTest {
     - This then creates an empty function in the correct class.
     - Modify the function just to ensure it returns the correct type.
 
+    Running Tests
+    - Re-Run the last Test Class: Shift + F10
+    - Put the Cursor inside a specific Test Method and press Ctrl + Shift + F10 to just run that test
+    - Do the same in the class itself to run that class.
  */
