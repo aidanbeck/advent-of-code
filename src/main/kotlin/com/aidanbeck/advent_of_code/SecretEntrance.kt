@@ -2,10 +2,6 @@ package com.aidanbeck.advent_of_code
 
 class SecretEntrance {
 
-    fun addOne(a: Int): Int {
-        return a + 1
-    }
-
     fun parseRotationSequence(input: String): Array<Int> {
 
         var direction = 0
@@ -31,6 +27,10 @@ class SecretEntrance {
         }
 
         return rotationSequence.toTypedArray()
+    }
+
+    fun solvePuzzle(puzzleString: String): Int {
+        return 0
     }
 }
 

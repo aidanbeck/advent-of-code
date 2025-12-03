@@ -71,3 +71,8 @@ There is no reason to store rotations as a distance *and* direction.
 Each rotation can be a single Integer, and the direction can exist as a positive or negative state. Left is negative, Right is positive.
 Do I continue and juggle the consequences of my design?
 Or do I refactor, even though it already works?
+
+I decided to refactor, and it made my implementation of CombinationLock cleaner than I was imagining.
+I could just apply the integer directly to the pointingAt value, instead of discerning between left and right turns.
+I still am figuring out the syntax of Kotlin. I like being neat and concise, but am sure that will come with familiarity.
+

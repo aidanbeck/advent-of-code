@@ -7,13 +7,6 @@ import kotlin.test.assertEquals
 internal class SecretEntranceTest {
 
     @Test
-    fun testAddOne() {
-        val secretEntrance = SecretEntrance()
-        val result = secretEntrance.addOne(0)
-        assertEquals(1, result)
-    }
-
-    @Test
     fun testParseRotationSequence() {
 
         val puzzleInput =
@@ -66,6 +59,23 @@ L82""" // I hate this formatting! STUDY how can I format multi-line strings in c
         println(combinationLock.pointingAt)
 
         assertEquals(3, combinationLock.atZeroCount)
+    }
+
+    @Test
+    fun testSecretEntranceSolvePuzzle() {
+        val puzzleString =
+"""
+L50
+R5
+R5
+L10
+L10
+R10"""
+
+        val atZeroCount = SecretEntrance().solvePuzzle(puzzleString)
+
+        assertEquals(3, atZeroCount)
+
     }
 
 }
