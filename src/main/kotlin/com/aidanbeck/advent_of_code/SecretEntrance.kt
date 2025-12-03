@@ -30,7 +30,16 @@ class SecretEntrance {
     }
 
     fun solvePuzzle(puzzleString: String): Int {
-        return 0
+
+        val rotations: Array<Int> = parseRotationSequence(puzzleString)
+
+        val combinationLock = CombinationLock()
+
+        for (rotation in rotations) {
+            combinationLock.rotate(rotation)
+        }
+
+        return combinationLock.atZeroCount
     }
 }
 

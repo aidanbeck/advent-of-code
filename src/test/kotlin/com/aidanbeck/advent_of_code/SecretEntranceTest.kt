@@ -64,8 +64,7 @@ L82""" // I hate this formatting! STUDY how can I format multi-line strings in c
     @Test
     fun testSecretEntranceSolvePuzzle() {
         val puzzleString =
-"""
-L50
+"""L50
 R5
 R5
 L10
