@@ -1,23 +1,50 @@
 package com.aidanbeck.advent_of_code
 
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.DisplayName
+import kotlin.test.Test
+import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
 internal class SecretEntranceTest {
-
-    @Test
-    @DisplayName("Addition 1+2=3")
-    fun testSomeMath() {
-        Assertions.assertEquals(1 + 2, 3)
-    }
 
     @Test
     fun testAddOne() {
         val secretEntrance = SecretEntrance()
         val result = secretEntrance.addOne(0)
         assertEquals(1, result)
+    }
+
+    @Test
+    fun testParseRotationSequence() {
+
+        val secretEntrance = SecretEntrance()
+
+        val puzzleInput =
+"""L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82""" // I hate this formatting! STUDY how can I format multi-line strings in code differently?
+
+        val desiredOutput = arrayOf(
+            Rotation('L', 68),
+            Rotation('L', 30),
+            Rotation('R', 48),
+            Rotation('L', 5),
+            Rotation('R', 60),
+            Rotation('L', 55),
+            Rotation('L', 1),
+            Rotation('L', 99),
+            Rotation('R', 14),
+            Rotation('L', 82),
+        )
+        val parsedSequence = secretEntrance.parseRotationSequence(puzzleInput)
+
+        assertContentEquals(parsedSequence, desiredOutput)
     }
 }
 
