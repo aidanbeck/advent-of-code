@@ -37,17 +37,18 @@ L82""" // I hate this formatting! STUDY how can I format multi-line strings in c
     @Test
     fun testCombinationLockRotation() {
         val combinationLock = CombinationLock()
-        combinationLock.rotate(-10)
+        combinationLock.rotate(-50)
         combinationLock.rotate(5)
 
-        assertEquals(-5, combinationLock.pointingAt)
+        assertEquals(5, combinationLock.pointingAt)
     }
 
     @Test
     fun testCombinationLockMinMaxOverflow() {
         val combinationLock = CombinationLock()
-        combinationLock.rotate(300)
-        combinationLock.rotate(-300)
+        combinationLock.rotate(-51)
+        combinationLock.rotate(1)
+        combinationLock.rotate(900)
 
         assertEquals(0, combinationLock.pointingAt)
     }
@@ -62,6 +63,7 @@ L82""" // I hate this formatting! STUDY how can I format multi-line strings in c
         combinationLock.rotate(-10) // 0
         combinationLock.rotate(-10) // -10
         combinationLock.rotate(10)  // 0
+        println(combinationLock.pointingAt)
 
         assertEquals(3, combinationLock.atZeroCount)
     }

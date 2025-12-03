@@ -40,5 +40,19 @@ class CombinationLock {
     val minInteger = 0
     val maxInteger = 99
 
-    fun rotate(rotation: Int) {}
+    fun rotate(rotation: Int) {
+        pointingAt += rotation
+
+        while (pointingAt > maxInteger) {
+            pointingAt -= maxInteger + 1
+        }
+
+        while (pointingAt < minInteger) {
+            pointingAt += maxInteger + 1
+        }
+
+        if (pointingAt == 0) {
+            atZeroCount++
+        }
+    }
 }
