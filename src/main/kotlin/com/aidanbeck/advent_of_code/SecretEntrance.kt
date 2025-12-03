@@ -25,14 +25,8 @@ class SecretEntrance {
                     rotationSequence.add(distance * direction)
                 }
                 'R' -> direction = 1
-                'L' -> {
-                    direction = -1
-                }
-                else -> {
-                    // This is not safe and will assume any other character is a number.
-                    // I am okay with this flaw because it will not see production.
-                    distanceCharacters += character
-                }
+                'L' -> direction = -1
+                else -> distanceCharacters += character // unsafe! assumes any other character is a number!
             }
         }
 
@@ -40,16 +34,11 @@ class SecretEntrance {
     }
 }
 
-//class CombinationLock {
-//    var pointingAt = 50
-//    val minInteger = 0
-//    val maxInteger = 99
-//
-//    fun rotate()
-//}
+class CombinationLock {
+    var pointingAt = 50
+    var atZeroCount = 0
+    val minInteger = 0
+    val maxInteger = 99
 
-data class Rotation(
-    val direction: Char, // 'L' or 'R'
-    val distance: Int
-)
-
+    fun rotate(rotation: Int) {}
+}

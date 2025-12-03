@@ -29,7 +29,7 @@ Even though this is not a practical requirement of the task, I will write unit t
   - A new line indicates the end of that rotation.
 - THE DIAL STARTS POINTED AT 50!
 - Examples:
-  - if the dial is at 11, and gets rotation R0,  it would then point to 19.
+  - if the dial is at 11, and gets rotation R8,  it would then point to 19.
   - if the dial is at 19, and gets rotation L19, it would then point to 0.
   - if the dial is at 00, and gets rotation L1,  it would then point to 99.
   - if the dial is at 99, and gets rotation R1,  it would then point to 0.

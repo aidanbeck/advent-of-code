@@ -34,11 +34,40 @@ L82""" // I hate this formatting! STUDY how can I format multi-line strings in c
         assertContentEquals(parsedOutput, desiredOutput)
     }
 
-//    @Test
-//    fun testCombinationLock() {
-//        val combinationLock = CombinationLock()
-//    }
+    @Test
+    fun testCombinationLockRotation() {
+        val combinationLock = CombinationLock()
+        combinationLock.rotate(-10)
+        combinationLock.rotate(5)
+
+        assertEquals(-5, combinationLock.pointingAt)
+    }
+
+    @Test
+    fun testCombinationLockMinMaxOverflow() {
+        val combinationLock = CombinationLock()
+        combinationLock.rotate(300)
+        combinationLock.rotate(-300)
+
+        assertEquals(0, combinationLock.pointingAt)
+    }
+
+    @Test
+    fun testCombinationLockZeroCounter() {
+        val combinationLock = CombinationLock()
+
+        combinationLock.rotate(-50) // 0
+        combinationLock.rotate(5)   // 5
+        combinationLock.rotate(5)   // 10
+        combinationLock.rotate(-10) // 0
+        combinationLock.rotate(-10) // -10
+        combinationLock.rotate(10)  // 0
+
+        assertEquals(3, combinationLock.atZeroCount)
+    }
+
 }
+
 
 /*
     Kotlin Testing Notes
