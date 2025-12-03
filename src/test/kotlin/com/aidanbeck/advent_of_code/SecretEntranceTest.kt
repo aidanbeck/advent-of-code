@@ -92,7 +92,7 @@ R10"""
         combinationLock.rotate(14)  // +0
         combinationLock.rotate(-82) // +1
 
-        assertEquals(6, combinationLock.crossedZeroCount)
+        assertEquals(6, combinationLock.hitZeroCount)
     }
 
 }

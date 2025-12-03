@@ -40,53 +40,42 @@ class SecretEntrance {
         }
 
         //return combinationLock.stopsAtZeroCount // Part One
-        return combinationLock.crossedZeroCount // Part Two
+        return combinationLock.hitZeroCount // Part Two
     }
 }
 
 class CombinationLock {
     var pointingAt = 50
-    var stopsAtZeroCount = 0
-    var crossedZeroCount = 0
     val minInteger = 0
     val maxInteger = 99
 
-    var startedFromZero = false
+    var stopsAtZeroCount = 0
+    var hitZeroCount = 0
+
+    fun rotateLeft() {
+        pointingAt--
+        if (pointingAt < minInteger) { pointingAt = maxInteger }
+        if (pointingAt == 0) { hitZeroCount++ }
+    }
+
+    fun rotateRight() {
+        pointingAt++
+        if (pointingAt > maxInteger) { pointingAt = minInteger }
+        if (pointingAt == 0) { hitZeroCount++ }
+    }
 
     fun rotate(rotation: Int) {
 
-        if (pointingAt == 0) { // if a rotation started on zero, don't increment crossedCount until it's already crossed around again.
-            startedFromZero = true
-        } else {
-            startedFromZero = false
+        for (i in 0 .. rotation - 1) {
+            rotateRight()
         }
 
-        pointingAt += rotation
-
-
-        while (pointingAt > maxInteger) {
-            pointingAt -= maxInteger + 1
-
-            if (pointingAt != 0 && !startedFromZero) { // avoid double counting when it crosses over AND lands on zero
-                crossedZeroCount++
-            }
-
-            startedFromZero = false // now that it has passed off zero, let it have the possibility to count on the next loop
-        }
-
-        while (pointingAt < minInteger) {
-            pointingAt += maxInteger + 1
-
-            if (pointingAt != 0 && !startedFromZero) {
-                crossedZeroCount++
-            }
-
-            startedFromZero = false
+        for (i in 0 downTo rotation + 1) {
+            rotateLeft()
         }
 
         if (pointingAt == 0) {
             stopsAtZeroCount++
-            crossedZeroCount++
         }
     }
 }
