@@ -137,7 +137,6 @@ Note that, while I write this on the 13th, some of what I will be committing is 
 ```
 for i = min, i <= max, i++
 add i to array
-
 ```
 - for each id, split into halves
 - compare each half
