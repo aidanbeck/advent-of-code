@@ -1,7 +1,16 @@
 package com.aidanbeck.advent_of_code
 
-class Range (val max: Int, val min: Int) {
-    fun getIds(): Array<Int> { return arrayOf(0) }
+class Range (val min: Int, val max: Int) {
+
+    fun getIds(): Array<Int> {
+
+        val ids = ArrayList<Int>()
+        for (i in min .. max) {
+            ids.add(i)
+        }
+        return ids.toTypedArray()
+    }
+
 }
 
 class GiftShop {

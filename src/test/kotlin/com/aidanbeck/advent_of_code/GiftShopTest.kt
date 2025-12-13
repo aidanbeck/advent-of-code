@@ -12,8 +12,8 @@ class GiftShopTest {
     fun testRangeGetIds() {
 
         val range = Range(22220, 22225)
-        val ids = arrayOf(22220, 222221, 22223, 22224, 22225)
-        assertEquals(ids, range.getIds())
+        val ids = arrayOf(22220, 22221, 22222, 22223, 22224, 22225)
+        assertContentEquals(ids, range.getIds())
     }
 
     @Test
