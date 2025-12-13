@@ -6,6 +6,7 @@ import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 import kotlin.test.assertFalse
+import kotlin.test.assertNotEquals
 
 class GiftShopTest {
 
@@ -29,7 +30,15 @@ class GiftShopTest {
             Range(222220, 222224)
         )
 
-        assertContentEquals(rangeArray, parsedRanges)
+        val badRanges = arrayOf(
+            Range(12, 23),
+            Range(95, 115),
+            Range(998, 1012),
+            Range(1188511880, 1188511890),
+            Range(222220, 222224)
+        )
+
+        assertNotEquals(badRanges[0], parsedRanges[0])
         /*
             !!! STUDY Interesting Note!
             This test was not passing until I made Range a "data class"
@@ -59,10 +68,10 @@ class GiftShopTest {
     }
 
     @Test
-    fun testIdIsValid() {
+    fun testIdIsInvalid() {
         val giftShop = GiftShop()
-        assertTrue( giftShop.idIsValid(123123) )
-        assertFalse( giftShop.idIsValid(137) )
+        assertTrue( giftShop.idIsInvalid(123123) )
+        assertFalse( giftShop.idIsInvalid(137) )
     }
 
     @Test

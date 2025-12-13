@@ -43,7 +43,7 @@ class GiftShop {
         return ids.toTypedArray()
     }
 
-    fun idIsValid(id: Int): Boolean {
+    fun idIsInvalid(id: Int): Boolean {
 
         val idChars: String = id.toString()
         val endIndex = idChars.length
@@ -55,7 +55,19 @@ class GiftShop {
 
         // STUDY there are likely smarter methods I could use to simplify this a lot!
     }
-    fun sumInvalidIds(ids: Array<Int>): Int { return 0 }
+
+    fun sumInvalidIds(ids: Array<Int>): Int {
+
+        var sum = 0
+
+        for (id in ids) {
+            if ( idIsInvalid(id) ) {
+                sum += id
+            }
+        }
+
+        return sum
+    }
 
     fun solvePartOne(puzzleInput: String): Int { return 0 }
 }
