@@ -27,14 +27,7 @@ class GiftShop {
             ranges.add( Range(min, max) )
         }
 
-        //return ranges.toTypedArray()
-        return arrayOf(
-            Range(11, 22),
-            Range(95, 115),
-            Range(998, 1012),
-            Range(1188511880, 1188511890),
-            Range(222220, 222224)
-        )
+        return ranges.toTypedArray()
     }
 
     fun getAllIds(ids: Array<Range>): Array<Int> { return arrayOf(0) }
