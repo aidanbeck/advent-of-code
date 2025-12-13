@@ -69,5 +69,10 @@ class GiftShop {
         return sum
     }
 
-    fun solvePartOne(puzzleInput: String): Int { return 0 }
+    fun solvePartOne(puzzleInput: String): Int {
+
+        val ranges = parseRanges(puzzleInput)
+        val ids = getAllIds(ranges)
+        return sumInvalidIds(ids)
+    }
 }
