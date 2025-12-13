@@ -1,5 +1,6 @@
 package com.aidanbeck.advent_of_code
 
+import java.util.Arrays
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -29,6 +30,14 @@ class GiftShopTest {
         )
 
         assertContentEquals(rangeArray, parsedRanges)
+        /*
+            !!! STUDY Interesting Note!
+            This test was not passing until I made Range a "data class"
+            This is because with a data class, kotlin automatically generates a .equals function.
+            Without this generated function to compare *data* across fields, it instead tries to compare the object as being the same in memory.
+            I assume assertEquals calls .equals on the classes, and the default .equals for a non-data class compares memory addresses.
+            I will look more into this to log in my day 2 journal.
+         */
     }
 
     @Test
