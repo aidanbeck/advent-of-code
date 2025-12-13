@@ -43,7 +43,18 @@ class GiftShop {
         return ids.toTypedArray()
     }
 
-    fun idIsValid(id: Int): Boolean { return false }
+    fun idIsValid(id: Int): Boolean {
+
+        val idChars: String = id.toString()
+        val endIndex = idChars.length
+        val midIndex = endIndex / 2
+        val firstHalf = idChars.substring(0, midIndex)
+        val secondHalf = idChars.substring(midIndex, endIndex)
+
+        return firstHalf == secondHalf
+
+        // STUDY there are likely smarter methods I could use to simplify this a lot!
+    }
     fun sumInvalidIds(ids: Array<Int>): Int { return 0 }
 
     fun solvePartOne(puzzleInput: String): Int { return 0 }
