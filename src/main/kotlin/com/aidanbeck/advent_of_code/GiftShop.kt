@@ -30,7 +30,19 @@ class GiftShop {
         return ranges.toTypedArray()
     }
 
-    fun getAllIds(ids: Array<Range>): Array<Int> { return arrayOf(0) }
+    fun getAllIds(ranges: Array<Range>): Array<Int> {
+
+        val ids = ArrayList<Int>()
+        for (range in ranges) {
+
+            val rangeIds = range.getIds()
+            for (id in rangeIds) {
+                ids.add(id)
+            }
+        }
+        return ids.toTypedArray()
+    }
+
     fun idIsValid(id: Int): Boolean { return false }
     fun sumInvalidIds(ids: Array<Int>): Int { return 0 }
 
