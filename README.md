@@ -100,3 +100,46 @@ Sleeping also did me good. I currently am home sick with Covid, so I wonder if t
 
 So far, my biggest displeasure with Kotlin is the weird for loop syntax.
 I'm very used to C styled for loops, but that's a superficial complaint and easy to get past.
+
+12/13/25
+Work and life has been busy, and I missed the intended completion window!
+I still intend to complete this challenge by December 24th.
+I work as a bank teller, and on slower days I have been using play.kotlinlang.org to write pseudocode and unit tests for days 2-5.
+This has been fantastic for getting practice in, as I cannot install any software on the bank's computers, but can use some websites.
+Note that, while I write this on the 13th, some of what I will be committing is being taken from text files I have emailed to myself from work over the past week.
+
+## Day 2: *[Gift Shop](https://adventofcode.com/2025/day/1)*
+
+**Puzzle Outline**
+- receive an input of ranges
+- format: `#####-#####,###-###,#####-#####`
+- gather each range's min and max
+- gather all ids in each range
+- count each id that has a sequence of repeating numbers
+- ie `55`, `6464`, `123123`
+- id's do not lead with zeros (so `101` is not secretly `0101`)
+- Goal: add all "invalid" ids together.
+
+**Examples**
+- `11-22` has two invalid id's: `11` and `22`
+- `95-115` has one invalid id: `99`
+- `998-1012` has one invalid id: `1010`
+- `1188511880-1188511890` has one invalid id: `1188511885`
+- `222220-222224` has one invalid id: `222222`
+- `1698522-1698528` contains no invalid ids
+- `446443-446449` has one invalid ID: `446446`
+- `38593856-38593862` has one invalid ID, `38593859`
+- Adding up all the invalid IDs in this example produces `1227775554`
+
+**Initial Notes - What I Need**
+- separate each range, and then separate each max and min
+- collect each id in a range
+```
+for i = min, i <= max, i++
+add i to array
+
+```
+- for each id, split into halves
+- compare each half
+- if the halves equal, add to a running count.
+- 
