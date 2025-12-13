@@ -1,10 +1,10 @@
 package com.aidanbeck.advent_of_code
 
-data class Range (val min: Int, val max: Int) {
+data class Range (val min: Long, val max: Long) {
 
-    fun getIds(): Array<Int> {
+    fun getIds(): Array<Long> {
 
-        val ids = ArrayList<Int>()
+        val ids = ArrayList<Long>()
         for (i in min .. max) {
             ids.add(i)
         }
@@ -21,8 +21,8 @@ class GiftShop {
 
         for (range in individualRanges) {
             val minMaxStrings: List<String> = range.split('-')
-            val min = minMaxStrings[0].toInt()
-            val max = minMaxStrings[1].toInt()
+            val min = minMaxStrings[0].toLong()
+            val max = minMaxStrings[1].toLong()
 
             ranges.add( Range(min, max) )
         }
@@ -30,9 +30,9 @@ class GiftShop {
         return ranges.toTypedArray()
     }
 
-    fun getAllIds(ranges: Array<Range>): Array<Int> {
+    fun getAllIds(ranges: Array<Range>): Array<Long> {
 
-        val ids = ArrayList<Int>()
+        val ids = ArrayList<Long>()
         for (range in ranges) {
 
             val rangeIds = range.getIds()
@@ -43,7 +43,7 @@ class GiftShop {
         return ids.toTypedArray()
     }
 
-    fun idIsInvalid(id: Int): Boolean {
+    fun idIsInvalid(id: Long): Boolean {
 
         val idChars: String = id.toString()
         val endIndex = idChars.length
@@ -56,9 +56,9 @@ class GiftShop {
         // STUDY there are likely smarter methods I could use to simplify this a lot!
     }
 
-    fun sumInvalidIds(ids: Array<Int>): Int {
+    fun sumInvalidIds(ids: Array<Long>): Long {
 
-        var sum = 0
+        var sum: Long = 0
 
         for (id in ids) {
             if ( idIsInvalid(id) ) {
@@ -69,7 +69,7 @@ class GiftShop {
         return sum
     }
 
-    fun solvePartOne(puzzleInput: String): Int {
+    fun solvePartOne(puzzleInput: String): Long {
 
         val ranges = parseRanges(puzzleInput)
         val ids = getAllIds(ranges)

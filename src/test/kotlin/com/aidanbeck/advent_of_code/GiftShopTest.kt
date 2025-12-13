@@ -1,6 +1,5 @@
 package com.aidanbeck.advent_of_code
 
-import java.util.Arrays
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
@@ -14,7 +13,7 @@ class GiftShopTest {
     fun testRangeGetIds() {
 
         val range = Range(22220, 22225)
-        val ids = arrayOf(22220, 22221, 22222, 22223, 22224, 22225)
+        val ids: Array<Long> = arrayOf(22220, 22221, 22222, 22223, 22224, 22225)
         assertContentEquals(ids, range.getIds())
     }
 
@@ -38,6 +37,7 @@ class GiftShopTest {
             Range(222220, 222224)
         )
 
+        assertContentEquals(rangeArray, parsedRanges)
         assertNotEquals(badRanges[0], parsedRanges[0])
         /*
             !!! STUDY Interesting Note!
@@ -58,7 +58,7 @@ class GiftShopTest {
             Range(998, 1012)
         )
 
-        val ids = arrayOf(
+        val ids: Array<Long> = arrayOf(
             11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
             95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115,
             998, 999, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012
@@ -76,7 +76,7 @@ class GiftShopTest {
 
     @Test
     fun testSumInvalidIds() {
-        val ids = arrayOf(
+        val ids: Array<Long> = arrayOf(
             11, 22, 99, 1010, 1188511885, 222222, 446446, 38593859, // invalid ids, counted
             10, 23, 98, 1012, 1188511886, 223222, 444446, 38593853  // valid ids, not counted
         )
