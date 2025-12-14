@@ -56,7 +56,34 @@ class Lobby {
 
     // PART TWO
 
-    fun getJoltage2(batteries: String): String = "0"
+    fun getJoltage2(batteries: String): String {
+
+        var joltage = ""
+        var lastUsedIndex = -1 // -1 allows for index 0 to be used.
+
+        for (i in 0..11) { // For all 12 digits
+
+            val digitsRemaining = 11 - i
+            val lastSafeIndex = batteries.length - 1 - digitsRemaining
+            var largestDigitFound = 0
+
+            // for all digits except the remaining
+            for (j in lastUsedIndex + 1..lastSafeIndex) {
+
+                val digit = batteries[j].toString().toInt()
+                if (digit > largestDigitFound) {
+                    largestDigitFound = digit
+                    lastUsedIndex = j
+                }
+            }
+
+            joltage += "$largestDigitFound"
+
+        }
+
+        return joltage
+    }
+
     fun getJoltages2(banks: Array<String>): Array<String> = arrayOf("0")
     fun solvePartTwo(puzzleInput: String): Long {
         return 0
