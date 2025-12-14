@@ -71,16 +71,27 @@ class GiftShopTest {
     fun testIdIsInvalid() {
         val giftShop = GiftShop()
         assertTrue( giftShop.idIsInvalid(123123, 1) )
+        assertFalse(giftShop.idIsInvalid(123123123, 1) )
         assertFalse( giftShop.idIsInvalid(137, 1) )
+    }
+
+    @Test
+    fun testIdIsInvalidPartTwo() {
+        val giftShop = GiftShop()
+        assertTrue(giftShop.idIsInvalid(123123, 2) )
+        assertTrue(giftShop.idIsInvalid(123123123, 2) )
+        assertFalse(giftShop.idIsInvalid(137, 2))
     }
 
     @Test
     fun testSumInvalidIds() {
         val ids: Array<Long> = arrayOf(
             11, 22, 99, 1010, 1188511885, 222222, 446446, 38593859, // invalid ids, counted
+            111, 999, 565656, 824824824, 2121212121,                // invalid ids, counted only by part 2
             10, 23, 98, 1012, 1188511886, 223222, 444446, 38593853  // valid ids, not counted
         )
         assertEquals(1227775554, GiftShop().sumInvalidIds(ids, 1) )
+        assertEquals(4174379265, GiftShop().sumInvalidIds(ids, 2) )
     }
 
     @Test
@@ -89,6 +100,15 @@ class GiftShopTest {
         val puzzleInput = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
 
         assertEquals(1227775554, GiftShop().solvePartOne(puzzleInput) )
+
+    }
+
+    @Test
+    fun testSolvePartTwo() {
+
+        val puzzleInput = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
+
+        assertEquals(4174379265, GiftShop().solvePartTwo(puzzleInput) )
 
     }
 }

@@ -80,4 +80,11 @@ class GiftShop {
         val ids = getAllIds(ranges)
         return sumInvalidIds(ids, 1)
     }
+
+    fun solvePartTwo(puzzleInput: String): Long {
+
+        val ranges = parseRanges(puzzleInput)
+        val ids = getAllIds(ranges)
+        return sumInvalidIds(ids, 2)
+    }
 }
