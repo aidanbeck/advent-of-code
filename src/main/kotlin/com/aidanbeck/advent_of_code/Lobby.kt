@@ -84,8 +84,29 @@ class Lobby {
         return joltage
     }
 
-    fun getJoltages2(banks: Array<String>): Array<String> = arrayOf("0")
+    fun getJoltages2(banks: Array<String>): Array<String> {
+
+        var joltages = ArrayList<String>()
+
+        for (bank in banks) {
+            joltages.add( getJoltage2(bank) ) // !!! MAJOR DRY violation! Just changes a single character. I should rethink the best way to include Part 1 and Part 2 functionality within the same class.
+        }
+
+        return joltages.toTypedArray()
+
+    }
+
     fun solvePartTwo(puzzleInput: String): Long {
-        return 0
+
+        val banks = puzzleInput.split('\n').toTypedArray()
+        val joltages = getJoltages2(banks)
+
+        var sum: Long = 0 // another DRY violation, only difference is function called and Long vs Int. Rethink organization for next puzzle.
+        for (joltage in joltages) {
+            sum += joltage.toLong()
+        }
+
+        return sum
+
     }
 }
