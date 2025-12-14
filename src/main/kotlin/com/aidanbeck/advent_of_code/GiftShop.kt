@@ -45,20 +45,60 @@ class GiftShop {
 
     fun idIsInvalid(id: Long, part: Int): Boolean {
 
-        if (part == 1) {
-            val idChars: String = id.toString()
-            val endIndex = idChars.length
-            val midIndex = endIndex / 2
-            val firstHalf = idChars.substring(0, midIndex)
-            val secondHalf = idChars.substring(midIndex, endIndex)
+        val idChars: String = id.toString()
+        val halfLength = idChars.length / 2
 
+        if (part == 1) {
+            val firstHalf = idChars.substring(0, halfLength)
+            val secondHalf = idChars.substring(halfLength, idChars.length)
             return firstHalf == secondHalf
 
-            // STUDY there are likely smarter methods I could use to simplify this a lot!
+        } else if (part != 2) {
+            throw Error("Part can only be 1 or 2!")
         }
 
-        return false
+        // SOLVE PART 2
 
+        // Get all possible segment lengths
+        val possibleSegmentLengths = arrayListOf<Int>()
+        for (i in 1..halfLength) {
+            if (idChars.length % i == 0) { // length is divisible by i
+                possibleSegmentLengths.add(i)
+            }
+        }
+
+        // Split ID into segments for each possible segment
+        // Results in groups of segments, one group for each possible segment length
+        val segmentGroups = ArrayList<ArrayList<String>>()
+        for (segmentLength in possibleSegmentLengths) {
+
+            val segments = arrayListOf<String>()
+            for (i in 0..idChars.length - segmentLength step segmentLength) {
+                segments.add( idChars.substring(i, i + segmentLength) )
+            }
+            segmentGroups.add(segments)
+        }
+
+        // Compare segments within each group
+        for (segmentGroup in segmentGroups) {
+
+            var previousSegment = segmentGroup[0]
+            var allSegmentsMatch = true
+
+            for (segment in segmentGroup) {
+                if (segment != previousSegment) {
+                    allSegmentsMatch = false
+                }
+                previousSegment = segment
+            }
+
+            if (allSegmentsMatch) { // at least one group had all matching segments
+                return true
+            }
+        }
+
+        // no segment groups match
+        return false
     }
 
     fun sumInvalidIds(ids: Array<Long>, part: Int): Long {
