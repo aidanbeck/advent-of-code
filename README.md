@@ -193,3 +193,19 @@ I might look at other people's solutions to see where I can improve, but for now
 - search again (after largest), note the largest
 - getJoltages(Array<Int>) gets the joltage of each bank
 - solvePartOne gets the joltages and adds them all up
+
+12/14/25
+This one was fast to implement! I got 16993 and... it's correct!
+It's nice to have an easy one! I still feel like my solution can be more concise, and am interested in seeing how others have implemented this with better practices.
+
+**Part Two**
+- Now, the joltage must be 12 digits instead of 2.
+- It seems to still be the case that it is most important for the leftmost digits to be largest, no matter what
+- However now, instead of saving just one extra digit at the end, we must save enough for the remaining digits
+- so on the first iteration, we must save 11 digits just in case. On the second, 10 digits. etc.
+
+**What I Need**
+- tests for getJoltage2, getJoltages2, and solvePartTwo
+- getJoltage2 finds all 12 digits, each iteration leaving room for the remaining digits, 
+- getJoltages2 uses getJoltage2
+- solvePartTwo
