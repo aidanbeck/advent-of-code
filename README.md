@@ -147,23 +147,23 @@ It was fine until reading id 9184965756, which I realized is outside of the Inte
 Refactoring the code to use Longs got me the solution 9184965756.. and it's right!
 
 **Part Two**
-- id's aren't *just* invalid when they are composed of two repeating numbers
+- ids aren't *just* invalid when they are composed of two repeating numbers.
 - they are invalid when they are composed of ANY repeating sequence.
 - ie 999, 123123123, 565656
 
 Observations:
-- Previously we would split the digits in half and compare each half
-- Now, we must split the digits into each possible division, and compare the sections of each division
-- a 10 character string is divisible into 1, 2, 5, and 10 character segments
+- Previously we would split the digits in half and compare each half.
+- Now, we must split the digits into each possible division, and compare the sections of each division.
+- a 10 character string is divisible into 1, 2, 5, and 10 character segments.
 - previously we would divide it into 5 character segments, which is half the string.
 - we don't have to break it into a 10 character segment, because you can't compare a single string against anything.
 - so, we must segment it into each possible length, and compare segments of the same length.
 - if any segment group is all identical, the id is invalid.
 
 **What I need**
-- alter tests & functions to take a "part" input
-- include tests for new rules
+- alter tests & functions to take a "part" input.
+- include tests for new rules.
 - get all numbers an id is divisible by, excluding itself.
 - for each divisible number, split the id into segments of that number.
-- compare elements in each segment group
+- compare elements in each segment group.
 - if any segment group is a full match, the id is invalid.

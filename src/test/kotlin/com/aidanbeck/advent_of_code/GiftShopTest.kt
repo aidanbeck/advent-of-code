@@ -70,8 +70,8 @@ class GiftShopTest {
     @Test
     fun testIdIsInvalid() {
         val giftShop = GiftShop()
-        assertTrue( giftShop.idIsInvalid(123123) )
-        assertFalse( giftShop.idIsInvalid(137) )
+        assertTrue( giftShop.idIsInvalid(123123, 1) )
+        assertFalse( giftShop.idIsInvalid(137, 1) )
     }
 
     @Test
@@ -80,7 +80,7 @@ class GiftShopTest {
             11, 22, 99, 1010, 1188511885, 222222, 446446, 38593859, // invalid ids, counted
             10, 23, 98, 1012, 1188511886, 223222, 444446, 38593853  // valid ids, not counted
         )
-        assertEquals(1227775554, GiftShop().sumInvalidIds(ids) )
+        assertEquals(1227775554, GiftShop().sumInvalidIds(ids, 1) )
     }
 
     @Test

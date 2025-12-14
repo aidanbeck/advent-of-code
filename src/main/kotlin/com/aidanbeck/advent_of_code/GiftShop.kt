@@ -43,25 +43,30 @@ class GiftShop {
         return ids.toTypedArray()
     }
 
-    fun idIsInvalid(id: Long): Boolean {
+    fun idIsInvalid(id: Long, part: Int): Boolean {
 
-        val idChars: String = id.toString()
-        val endIndex = idChars.length
-        val midIndex = endIndex / 2
-        val firstHalf = idChars.substring(0, midIndex)
-        val secondHalf = idChars.substring(midIndex, endIndex)
+        if (part == 1) {
+            val idChars: String = id.toString()
+            val endIndex = idChars.length
+            val midIndex = endIndex / 2
+            val firstHalf = idChars.substring(0, midIndex)
+            val secondHalf = idChars.substring(midIndex, endIndex)
 
-        return firstHalf == secondHalf
+            return firstHalf == secondHalf
 
-        // STUDY there are likely smarter methods I could use to simplify this a lot!
+            // STUDY there are likely smarter methods I could use to simplify this a lot!
+        }
+
+        return false
+
     }
 
-    fun sumInvalidIds(ids: Array<Long>): Long {
+    fun sumInvalidIds(ids: Array<Long>, part: Int): Long {
 
         var sum: Long = 0
 
         for (id in ids) {
-            if ( idIsInvalid(id) ) {
+            if ( idIsInvalid(id, part) ) {
                 sum += id
             }
         }
@@ -73,6 +78,6 @@ class GiftShop {
 
         val ranges = parseRanges(puzzleInput)
         val ids = getAllIds(ranges)
-        return sumInvalidIds(ids)
+        return sumInvalidIds(ids, 1)
     }
 }
