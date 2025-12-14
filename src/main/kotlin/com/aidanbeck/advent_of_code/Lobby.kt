@@ -40,5 +40,17 @@ class Lobby {
 
         return joltages.toTypedArray()
     }
-    fun solvePartOne(puzzleInput: String) = 0
+
+    fun solvePartOne(puzzleInput: String): Int {
+
+        val banks = puzzleInput.split('\n').toTypedArray() //STUDY brush up on differences between List and Array
+        val joltages = getJoltages(banks)
+
+        var sum = 0
+        for (joltage in joltages) {
+            sum += joltage.toInt()
+        }
+
+        return sum
+    }
 }
