@@ -108,7 +108,7 @@ I work as a bank teller, and on slower days I have been using play.kotlinlang.or
 This has been fantastic for getting practice in, as I cannot install any software on the bank's computers, but can use some websites.
 Note that, while I write this on the 13th, some of what I will be committing is being taken from text files I have emailed to myself from work over the past week.
 
-## Day 2: *[Gift Shop](https://adventofcode.com/2025/day/1)*
+## Day 2: *[Gift Shop](https://adventofcode.com/2025/day/1)* Solved!
 
 **Puzzle Outline**
 - receive an input of ranges
@@ -167,3 +167,11 @@ Observations:
 - for each divisible number, split the id into segments of that number.
 - compare elements in each segment group.
 - if any segment group is a full match, the id is invalid.
+
+12/14/25
+I implemented the above steps and passed all tests.
+I got solution 43872163557 and... it's correct!
+I am surprised that my idIsInvalid() refactoring worked on the first attempt.
+It is extremely verbose with the added Part Two requirements and should probably be broken down into separate functions that can be tested in isolation.
+I also could find a way to use my new implementation to solve Part One instead of having a separator within the function that includes the original solution.
+I might look at other people's solutions to see where I can improve, but for now I will move on to the next puzzle.
