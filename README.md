@@ -176,7 +176,7 @@ It is extremely verbose with the added Part Two requirements and should probably
 I also could find a way to use my new implementation to solve Part One instead of having a separator within the function that includes the original solution.
 I might look at other people's solutions to see where I can improve, but for now I will move on to the next puzzle.
 
-## Day 3: *[Lobby](https://adventofcode.com/2025/day/3)*
+## Day 3: *[Lobby](https://adventofcode.com/2025/day/3)* Solved!
 
 **Puzzle Outline**
 - a "battery" is an integer between 1 and 9
@@ -209,3 +209,30 @@ It's nice to have an easy one! I still feel like my solution can be more concise
 - getJoltage2 finds all 12 digits, each iteration leaving room for the remaining digits, 
 - getJoltages2 uses getJoltage2
 - solvePartTwo
+
+12/14/25 I got 168617068915447 and... it's correct!
+This one was easier than I anticipated upon first reading part 2, but I need to rethink how I want to organize my class to include functionality for both parts.
+This is a fun exercise, because I have to design a class around functionality that will change in a way I cannot predict.
+In this puzzle, I opted for a "getJoltage" and "getJoltage2" approach, which I didn't like. It isn't how I will write code for a real project, and passes on the opportunity to solve real refactoring conundrums.
+I also think I am more verbose than I need to be. I will definitely be returning to compare my solutions against more experienced programmers, but for now I will continue blind.
+Comparing and taking notes will be a good exercise to do when I am working at the bank on a slow day. For now, with access to my full IDE, I will continue with the puzzles.
+
+## Day 4: *[Printing Department](https://adventofcode.com/2025/day/4)*
+
+**Puzzle Outline**
+- there is a string representing a grid.
+- `.` represents empty space.
+- `@` represents rolls of paper.
+- `\n` represents the end of a row
+- adjacent tiles are the 8 tiles surrounding a tile.
+- @'s are "movable" if less than 4 of their adjacent tiles are obstructed
+- off-grid tiles don't count as obstructions
+- Goal: Count the "movable" tiles in the grid.
+
+**Initial Notes - What I Need**
+- find width & height of grid. (Count characters before newline, and count every newline)
+- getTile(x,y): extracts character via coordinate. if off-grid, return '.' or special character.
+- getAdjacentTiles(x,y): return 8 length string of characters
+- isTileMoveable(x,y): check, return true/false
+- countMoveableTiles(width, height), search through grid. When an @ is found, increment if moveable.
+- solvePartOne: find dimensions of grid, and count moveable tiles.

@@ -204,6 +204,6 @@ fun main() {
 1713332323432132313347332232222233233353122226323222132233721127333352212129211232322233333627224312"""
 
     val lobby = Lobby()
-    val solution = lobby.solvePartOne(puzzleInput)
+    val solution = lobby.solvePartTwo(puzzleInput)
     println("The solution is: $solution")
 }
