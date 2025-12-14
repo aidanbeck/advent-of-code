@@ -108,7 +108,7 @@ I work as a bank teller, and on slower days I have been using play.kotlinlang.or
 This has been fantastic for getting practice in, as I cannot install any software on the bank's computers, but can use some websites.
 Note that, while I write this on the 13th, some of what I will be committing is being taken from text files I have emailed to myself from work over the past week.
 
-## Day 2: *[Gift Shop](https://adventofcode.com/2025/day/1)* Solved!
+## Day 2: *[Gift Shop](https://adventofcode.com/2025/day/2)* Solved!
 
 **Puzzle Outline**
 - receive an input of ranges
@@ -175,3 +175,21 @@ I am surprised that my idIsInvalid() refactoring worked on the first attempt.
 It is extremely verbose with the added Part Two requirements and should probably be broken down into separate functions that can be tested in isolation.
 I also could find a way to use my new implementation to solve Part One instead of having a separator within the function that includes the original solution.
 I might look at other people's solutions to see where I can improve, but for now I will move on to the next puzzle.
+
+## Day 3: *[Lobby](https://adventofcode.com/2025/day/3)*
+
+**Puzzle Outline**
+- a "battery" is an integer between 1 and 9
+- a "bank" is a line of batteries
+- for each bank, you must concatenate two batteries together
+- the first character must come first in the bank
+- you must create the largest possible number
+- Goal: Sum the largest possible number from each bank.
+
+**Initial Notes - What I Need**
+- parseBanks separates each line into an Int array of "banks" // redundant, can be done with one line in solver
+- getJoltage(String) finds the largest joltage
+- search characters (except last), note the largest. Stop if 9 is found.
+- search again (after largest), note the largest
+- getJoltages(Array<Int>) gets the joltage of each bank
+- solvePartOne gets the joltages and adds them all up
