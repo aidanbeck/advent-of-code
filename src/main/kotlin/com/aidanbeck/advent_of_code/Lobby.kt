@@ -29,6 +29,16 @@ class Lobby {
 
         return "$significantDigit$secondSignificantDigit"
     }
-    fun getJoltages(banks: Array<String>) = arrayOf("0")
+
+    fun getJoltages(banks: Array<String>): Array<String> {
+
+        var joltages = ArrayList<String>()
+
+        for (bank in banks) {
+            joltages.add( getJoltage(bank) )
+        }
+
+        return joltages.toTypedArray()
+    }
     fun solvePartOne(puzzleInput: String) = 0
 }

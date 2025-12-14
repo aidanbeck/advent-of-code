@@ -2,6 +2,7 @@ package com.aidanbeck.advent_of_code
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertContentEquals
 
 class LobbyTest {
     @Test
@@ -22,7 +23,7 @@ class LobbyTest {
         val banks = arrayOf("987654321111111", "811111111111119", "234234234234278", "818181911112111")
         val joltages = arrayOf("98", "89", "78", "92")
 
-        assertEquals(joltages, lobby.getJoltages(banks))
+        assertContentEquals(joltages, lobby.getJoltages(banks))
     }
 
     @Test
