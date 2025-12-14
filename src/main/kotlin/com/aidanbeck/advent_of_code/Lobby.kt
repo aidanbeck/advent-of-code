@@ -53,4 +53,12 @@ class Lobby {
 
         return sum
     }
+
+    // PART TWO
+
+    fun getJoltage2(batteries: String): String = "0"
+    fun getJoltages2(banks: Array<String>): Array<String> = arrayOf("0")
+    fun solvePartTwo(puzzleInput: String): Long {
+        return 0
+    }
 }
