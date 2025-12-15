@@ -38,10 +38,40 @@ class PrintingDepartment(val tiles: String) {
             getTile(x - 1, y - 1)
         )
 
-        val tileString: String = String(adjacentTiles)
-
-        return tileString
+        return String(adjacentTiles)
     }
-    fun isTileMoveable(x: Int, y: Int) = false
-    fun countMoveableTiles() = 0
+
+    fun isTileMoveable(x: Int, y: Int): Boolean {
+
+        val adjacentTiles = getAdjacentTiles(x, y)
+        var sumAdjacentObstructions = 0
+
+        for (char in adjacentTiles) {
+            if (char == '@') {
+                sumAdjacentObstructions++
+            }
+        }
+
+        if (sumAdjacentObstructions < 4) {
+            return true
+        }
+
+        return false
+
+    }
+
+    fun countMoveableTiles(): Int {
+
+        var sumMoveableTiles = 0
+
+        for (y in 0..height) {
+            for (x in 0..width) {
+                if (getTile(x, y) == '@' && isTileMoveable(x, y)) {
+                    sumMoveableTiles++
+                }
+            }
+        }
+
+        return sumMoveableTiles
+    }
 }
