@@ -35,10 +35,11 @@ class PrintingDepartmentTest {
     @Test
     fun testGetTile() {
         val printingDepartment = PrintingDepartment(puzzleInput)
+        assertEquals('.', printingDepartment.getTile(0,0))
         assertEquals('@', printingDepartment.getTile(4,4))
         assertEquals('@', printingDepartment.getTile(8,9))
         assertEquals('.', printingDepartment.getTile(6,3))
-        assertEquals('@', printingDepartment.getTile(7,9))
+        assertEquals('.', printingDepartment.getTile(7,9))
     }
 
     @Test
