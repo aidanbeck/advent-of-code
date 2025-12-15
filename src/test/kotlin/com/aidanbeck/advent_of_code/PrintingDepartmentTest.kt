@@ -27,7 +27,7 @@ class PrintingDepartmentTest {
     }
 
     @Test
-    fun testCalculatHeight() {
+    fun testCalculateHeight() {
         val printingDepartment = PrintingDepartment(puzzleInput)
         assertEquals(10, printingDepartment.calculateHeight())
     }
@@ -40,6 +40,7 @@ class PrintingDepartmentTest {
         assertEquals('@', printingDepartment.getTile(8,9))
         assertEquals('.', printingDepartment.getTile(6,3))
         assertEquals('.', printingDepartment.getTile(7,9))
+        assertEquals('_', printingDepartment.getTile(10,9))
     }
 
     @Test
