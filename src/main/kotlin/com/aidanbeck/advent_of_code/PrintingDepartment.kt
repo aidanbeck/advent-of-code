@@ -111,5 +111,20 @@ class PrintingDepartment(var tiles: String) {
         }
     }
 
-    fun solvePartTwo() = 0
+    fun solvePartTwo(): Int {
+
+        var moveableTilesCount = countMoveableTiles()
+        var movedTilesCount = 0
+
+        while (moveableTilesCount > 0) {
+
+            val moveableCoordinates = getMoveableCoordinates()
+            moveTiles(moveableCoordinates)
+
+            moveableTilesCount = countMoveableTiles()
+            movedTilesCount += moveableCoordinates.size
+        }
+
+        return movedTilesCount
+    }
 }
