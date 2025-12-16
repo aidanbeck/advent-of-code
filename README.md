@@ -236,3 +236,27 @@ Comparing and taking notes will be a good exercise to do when I am working at th
 - isTileMoveable(x,y): check, return true/false
 - countMoveableTiles(width, height), search through grid. When an @ is found, increment if moveable.
 - solvePartOne: find dimensions of grid, and count moveable tiles.
+
+12/15/25
+This didn't give me too much trouble and was a fun puzzle! I enjoy working with a grid, it feels tangible in a way more abstract data structures don't.
+I got 1527 and... it's right!
+
+**Part Two**
+- remove all moveable rolls from the grid
+- count how many newly moveable rolls there are
+- repeat until there are no moveable rolls
+- count how many rolls you've removed.
+
+**Brainstorming**
+I need to be able to edit the grid, but if I do this during my counting, it will influence the result.
+I could separate the counting and removal process by keeping track of where each moveable roll is and removing them between each count.
+OR I could create a buffer grid, which starts as a duplicate of the original grid, but I modify it as I count, before changing the original grid to match it.
+Method 1 saves some memory, Method 2 is faster. Neither really matters, so what is a cleaner solution?
+My intuition is that keeping track of indexes is slightly tidier than creating a buffer system, so I'll try that.
+
+**What I Need**
+- data class coordinate(x, y)
+- setTile
+- getMoveableCoordinates, returns an array of coordinates
+- moveTiles(moveableCoordinates) sets all tiles to `.`
+- solvePartTwo - gets moveable coordinates, moves them, adds moveableCoordinates length to a rolling sum.

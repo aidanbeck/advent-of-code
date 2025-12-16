@@ -1,5 +1,7 @@
 package com.aidanbeck.advent_of_code
 
+data class Coordinate(val x: Int, val y: Int)
+
 class PrintingDepartment(val tiles: String) {
     var width = calculateWidth()
     var height = calculateHeight()
@@ -74,4 +76,11 @@ class PrintingDepartment(val tiles: String) {
 
         return sumMoveableTiles
     }
+
+    // PART TWO
+
+    fun setTile(x: Int, y: Int, char: Char) {}
+    fun getMoveableCoordinates(): Array<Coordinate> = arrayOf( Coordinate(0,0) )
+    fun moveTiles(moveableCoordinates: Array<Coordinate>) {}
+    fun solvePartTwo() = 0
 }

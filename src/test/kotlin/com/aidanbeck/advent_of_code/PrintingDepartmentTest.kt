@@ -1,6 +1,7 @@
 package com.aidanbeck.advent_of_code
 
 import kotlin.test.Test
+import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 import kotlin.test.assertFalse
@@ -66,5 +67,73 @@ class PrintingDepartmentTest {
     fun testCountMoveableTiles() {
         val printingDepartment = PrintingDepartment(puzzleInput)
         assertEquals(13, printingDepartment.countMoveableTiles())
+    }
+
+    // PART TWO
+
+    @Test
+    fun testSetTile() {
+        val printingDepartment = PrintingDepartment(puzzleInput)
+
+        printingDepartment.setTile(0,0,'a')
+        printingDepartment.setTile(4,2,'b')
+        printingDepartment.setTile(9,9,'c')
+        printingDepartment.setTile(20,20,'d')
+
+        assertEquals('a', printingDepartment.getTile(0,0))
+        assertEquals('b', printingDepartment.getTile(4,2))
+        assertEquals('c', printingDepartment.getTile(9,9))
+        assertEquals('_', printingDepartment.getTile(20,20))
+    }
+
+    @Test
+    fun testGetMoveableCoordinates() {
+        val printingDepartment = PrintingDepartment(puzzleInput)
+
+        val moveableCoordinates = arrayOf(
+            Coordinate(0,2),
+            Coordinate(0,3),
+            Coordinate(0,5),
+            Coordinate(0,6),
+            Coordinate(0,8),
+            Coordinate(1,0),
+            Coordinate(2,6),
+            Coordinate(4,0),
+            Coordinate(4,9),
+            Coordinate(7,0),
+            Coordinate(9,0),
+            Coordinate(9,2),
+            Coordinate(9,8)
+        )
+
+        assertContentEquals(moveableCoordinates, printingDepartment.getMoveableCoordinates())
+    }
+
+    @Test
+    fun testMoveTiles() {
+        val before =
+"""XXX
+XXX
+XXX"""
+        val after =
+"""XXX
+X.X
+XX."""
+        val printingDepartment = PrintingDepartment(before)
+        printingDepartment.moveTiles(
+            arrayOf(
+                Coordinate(1,1),
+                Coordinate(2,2),
+            )
+        )
+
+        assertEquals(after, printingDepartment.tiles)
+    }
+
+    @Test
+    fun testSolvePartTwo() {
+        val printingDepartment = PrintingDepartment(puzzleInput)
+
+        assertEquals(43, printingDepartment.solvePartTwo())
     }
 }
