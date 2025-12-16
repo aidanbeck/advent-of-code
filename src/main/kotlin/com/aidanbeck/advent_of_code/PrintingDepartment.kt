@@ -103,6 +103,13 @@ class PrintingDepartment(var tiles: String) {
 
         return moveableCoordinates.toTypedArray()
     }
-    fun moveTiles(moveableCoordinates: Array<Coordinate>) {}
+
+    fun moveTiles(moveableCoordinates: Array<Coordinate>) {
+
+        for (coordinate in moveableCoordinates) {
+            setTile(coordinate.x, coordinate.y, '.')
+        }
+    }
+
     fun solvePartTwo() = 0
 }
