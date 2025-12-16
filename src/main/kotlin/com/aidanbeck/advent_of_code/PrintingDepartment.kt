@@ -2,7 +2,7 @@ package com.aidanbeck.advent_of_code
 
 data class Coordinate(val x: Int, val y: Int)
 
-class PrintingDepartment(val tiles: String) {
+class PrintingDepartment(var tiles: String) {
     var width = calculateWidth()
     var height = calculateHeight()
 
@@ -79,7 +79,16 @@ class PrintingDepartment(val tiles: String) {
 
     // PART TWO
 
-    fun setTile(x: Int, y: Int, char: Char) {}
+    fun setTile(x: Int, y: Int, char: Char) {
+
+        if (x < 0 || x >= width || y < 0 || y >= height) return // off-grid
+
+        val charArray = tiles.toCharArray()
+        charArray[width*y+x +y] = char
+        tiles = String(charArray)
+
+    }
+
     fun getMoveableCoordinates(): Array<Coordinate> = arrayOf( Coordinate(0,0) )
     fun moveTiles(moveableCoordinates: Array<Coordinate>) {}
     fun solvePartTwo() = 0
