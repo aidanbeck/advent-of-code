@@ -91,19 +91,19 @@ class PrintingDepartmentTest {
         val printingDepartment = PrintingDepartment(puzzleInput)
 
         val moveableCoordinates = arrayOf(
-            Coordinate(0,2),
-            Coordinate(0,3),
-            Coordinate(0,5),
-            Coordinate(0,6),
-            Coordinate(0,8),
-            Coordinate(1,0),
-            Coordinate(2,6),
-            Coordinate(4,0),
-            Coordinate(4,9),
-            Coordinate(7,0),
-            Coordinate(9,0),
-            Coordinate(9,2),
-            Coordinate(9,8)
+            Coordinate(2,0),
+            Coordinate(3,0),
+            Coordinate(5,0),
+            Coordinate(6,0),
+            Coordinate(8,0),
+            Coordinate(0,1),
+            Coordinate(6,2),
+            Coordinate(0,4),
+            Coordinate(9,4),
+            Coordinate(0,7),
+            Coordinate(0,9),
+            Coordinate(2,9),
+            Coordinate(8,9)
         )
 
         assertContentEquals(moveableCoordinates, printingDepartment.getMoveableCoordinates())

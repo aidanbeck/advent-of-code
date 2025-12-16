@@ -89,7 +89,20 @@ class PrintingDepartment(var tiles: String) {
 
     }
 
-    fun getMoveableCoordinates(): Array<Coordinate> = arrayOf( Coordinate(0,0) )
+    fun getMoveableCoordinates(): Array<Coordinate> {
+
+        val moveableCoordinates = ArrayList<Coordinate>()
+
+        for (y in 0..height) {
+            for (x in 0..width) {
+                if (getTile(x, y) == '@' && isTileMoveable(x, y)) {
+                    moveableCoordinates.add( Coordinate(x, y) )
+                }
+            }
+        }
+
+        return moveableCoordinates.toTypedArray()
+    }
     fun moveTiles(moveableCoordinates: Array<Coordinate>) {}
     fun solvePartTwo() = 0
 }
