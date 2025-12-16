@@ -7,13 +7,9 @@ I will also be writing about my process here. This year, there are *12 days* of 
 My goal is to solve as many of them as possible, but not necessarily on the day they come out.
 As I write, it is already December 2nd.
 
-Conveniently, this year IntelliJ is [livestreaming](https://youtube.com/playlist?list=PLlFc5cFwUnmx9-VIcfxqhjHrwD3Lab4o4&si=v9J7AW-4XdhY-tEQ) their puzzle solving in Kotlin on their YouTube channel.
-My goal for this year is learning rather than compete, so I will be checking these out where I get completely stuck.
-I will write in my log when I do so, and note what I learn from it.
-Even if I solve it completely by myself, I may still go back and watch the steams to see what a best practice approach might have been, if I have the time.
-
-I also want to practice *Test Driven Development*.
-Even though this is not a practical requirement of the task, I will write unit tests for my puzzle solutions.
+There will be thousands of repositories full of solutions just like this one from other developers.
+To make this more valuable, if only to myself, I will use the rest of this file as a puzzle journal to outline my thought process and experience in solving each puzzle.
+I hope it will be useful for analyzing and correcting flaws in my intuition, or will at least be interesting to look back on.
 
 ## Day 1: *[Secret Entrance](https://adventofcode.com/2025/day/1)* Solved!
 
@@ -217,7 +213,7 @@ In this puzzle, I opted for a "getJoltage" and "getJoltage2" approach, which I d
 I also think I am more verbose than I need to be. I will definitely be returning to compare my solutions against more experienced programmers, but for now I will continue blind.
 Comparing and taking notes will be a good exercise to do when I am working at the bank on a slow day. For now, with access to my full IDE, I will continue with the puzzles.
 
-## Day 4: *[Printing Department](https://adventofcode.com/2025/day/4)*
+## Day 4: *[Printing Department](https://adventofcode.com/2025/day/4)* Solved!
 
 **Puzzle Outline**
 - there is a string representing a grid.
@@ -260,3 +256,5 @@ My intuition is that keeping track of indexes is slightly tidier than creating a
 - getMoveableCoordinates, returns an array of coordinates
 - moveTiles(moveableCoordinates) sets all tiles to `.`
 - solvePartTwo - gets moveable coordinates, moves them, adds moveableCoordinates length to a rolling sum.
+
+12/15/25 With the new functionality I got 8690 and... it's correct!

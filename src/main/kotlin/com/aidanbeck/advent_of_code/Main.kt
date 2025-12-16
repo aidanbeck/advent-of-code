@@ -143,6 +143,6 @@ fun main() {
 .@@@..@@@@@@@....@@@@.@@@@@.@@@@@@@.@@@@@.@@.@@@@.@.@.@@.@@@@..@@.@......@@@@.@@@@....@@.@@@.@.@@.@@@@@@.@@@@@.@.@@...@@.@@.@...@@@..@@@@.."""
 
     val printingDepartment = PrintingDepartment(puzzleInput)
-    val solution = printingDepartment.countMoveableTiles()
+    val solution = printingDepartment.solvePartTwo()
     println("The solution is: $solution")
 }
