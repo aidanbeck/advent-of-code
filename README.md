@@ -258,3 +258,35 @@ My intuition is that keeping track of indexes is slightly tidier than creating a
 - solvePartTwo - gets moveable coordinates, moves them, adds moveableCoordinates length to a rolling sum.
 
 12/15/25 With the new functionality I got 8690 and... it's correct!
+
+## Day 5: *[Cafeteria](https://adventofcode.com/2025/day/5)* Solved!
+
+**Puzzle Outline**
+- ranges are provided, separated by new lines.
+- then, a separation line is provided.
+- then, every unique id is provided, separated by new lines.
+- if an id exists within a range, it is "fresh".
+- Goal: count the number of fresh ID's
+
+**Two Potential Methods**
+
+1. For every ID, check if it exists within any of the ranges.
+2. For every Range, check what IDs exist within it.
+- If they do, add to "fresh" list.
+- Else, add to next batch to check.
+
+Method 1 seems more straightforward, but it could be less optimized.
+Method 2 has the benefit of the list getting shorter over time.
+So, do I go for simplicity or optimization?
+I don't think Part 2's offer *more* data, and so I don't think optimization becoming an issue will occur.
+On day 1, My Part 2 solution benefited from Part 1 being the more simplistic, adaptable solution.
+My initial intuition tells me to go with Method 2, but I think I will actually try Method 1.
+This could lead me astray if Part 2 involves some rule that massively increases compute time. Time will tell.
+
+**Initial Notes - What I Need**
+- parseRanges: reads puzzle input, creating a Range class array for each line. Stop at blank line.
+- parseIDs: reads puzzle input, Start after blank line. Add id to an Integer array for each line.
+- isWithinRange(id, range): return true if id is within range
+- isIdFresh(id): runs isWithinRange on id for each range in array. If any true, return true
+- getFreshIds: run isIdFresh for each id, return array of all fresh ids (this might be needed for part 2)
+- solvePartOne: return the length of the array returned by getFreshIds
