@@ -76,4 +76,20 @@ class CafeteriaTest {
         val cafeteria = Cafeteria(puzzleInput)
         assertEquals(3, cafeteria.countFreshIds())
     }
+
+    @Test
+    fun testGetAllPossibleIds() {
+
+        val cafeteria = Cafeteria(puzzleInput)
+        val possibleIds = longArrayOf(3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
+
+        assertContentEquals(possibleIds, cafeteria.getAllPossibleIds())
+    }
+
+    @Test
+    fun testCountAllPossibleIds() {
+        val cafeteria = Cafeteria(puzzleInput)
+
+        assertEquals(14, cafeteria.countAllPossibleIds())
+    }
 }
