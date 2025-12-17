@@ -33,7 +33,10 @@ class Cafeteria(val puzzleInput: String) {
         return ids.toTypedArray()
     }
 
-    fun isIdWithinRange(id: Int, range: Range) = false
+    fun isIdWithinRange(id: Int, range: Range): Boolean {
+
+        return id <= range.max && id >= range.min
+    }
     fun isIdFresh(id: Int) = false
     fun getFreshIds() = arrayOf(0)
     fun countFreshIds() = 0
