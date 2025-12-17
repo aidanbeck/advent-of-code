@@ -290,3 +290,14 @@ This could lead me astray if Part 2 involves some rule that massively increases 
 - isIdFresh(id): runs isWithinRange on id for each range in array. If any true, return true
 - getFreshIds: run isIdFresh for each id, return array of all fresh ids (this might be needed for part 2)
 - solvePartOne: return the length of the array returned by getFreshIds
+
+12/17/25 I've just implemented my functions to pass all unit tests, but I can already tell that I'm going to need to support Longs for this to work.
+I've refactored my code to use Longs, giving me 896... which is correct! It also took basically zero time to run, so my fears about optimization were unwarranted.
+
+**Part Two**
+- get ALL POSSIBLE fresh Ids. That is, numbers between ranges.
+- Count the number of possible fresh IDs
+
+**What I Need**
+- getAllPossibleIds: for each range, for each id, detect if a rolling array includes that id. if not, add it to the array. This is probably unoptimized, let's try it anyway!
+- countAllPossibleIds

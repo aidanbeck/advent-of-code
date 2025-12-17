@@ -22,23 +22,23 @@ class Cafeteria(val puzzleInput: String) {
         return ranges.toTypedArray()
     }
 
-    fun parseIds(): Array<Int> {
+    fun parseIds(): Array<Long> {
         val idStrings = puzzleInput.split("\n\n")[1].split('\n') // get all lines AFTER empty line
-        val ids = ArrayList<Int>()
+        val ids = ArrayList<Long>()
 
         for (idString in idStrings) {
-            ids.add( idString.toInt() )
+            ids.add( idString.toLong() )
         }
 
         return ids.toTypedArray()
     }
 
-    fun isIdWithinRange(id: Int, range: Range): Boolean {
+    fun isIdWithinRange(id: Long, range: Range): Boolean {
 
         return id <= range.max && id >= range.min
     }
 
-    fun isIdFresh(id: Int): Boolean {
+    fun isIdFresh(id: Long): Boolean {
 
         for (range in ranges) {
             if (isIdWithinRange(id, range)) {
@@ -50,9 +50,9 @@ class Cafeteria(val puzzleInput: String) {
 
     }
 
-    fun getFreshIds(): Array<Int> {
+    fun getFreshIds(): Array<Long> {
 
-        val freshIds = ArrayList<Int>()
+        val freshIds = ArrayList<Long>()
 
         for (id in ids) {
             if (isIdFresh(id)) {

@@ -36,8 +36,8 @@ class CafeteriaTest {
     fun testParseIds() {
         val cafeteria = Cafeteria(puzzleInput)
 
-        val ids = arrayOf(1, 5, 8, 11, 17, 32)
-        assertContentEquals(ids, cafeteria.parseIds())
+        val ids = longArrayOf(1, 5, 8, 11, 17, 32)
+        assertContentEquals(ids, cafeteria.parseIds().toLongArray())
     }
 
     @Test
@@ -66,9 +66,9 @@ class CafeteriaTest {
     @Test
     fun testGetFreshIds() {
         val cafeteria = Cafeteria(puzzleInput)
-        val freshIds = arrayOf(5, 11, 17)
+        val freshIds = longArrayOf(5, 11, 17)
 
-        assertContentEquals(freshIds, cafeteria.getFreshIds())
+        assertContentEquals(freshIds, cafeteria.getFreshIds().toLongArray()) // STUDY why do I need .toLongArray() here when it is already outputting an Array<Long>? There is something I still need to understand.
     }
 
     @Test
