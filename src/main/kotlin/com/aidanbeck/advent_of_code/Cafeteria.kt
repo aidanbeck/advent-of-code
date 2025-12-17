@@ -63,5 +63,7 @@ class Cafeteria(val puzzleInput: String) {
         return freshIds.toTypedArray()
     }
 
-    fun countFreshIds() = 0
+    fun countFreshIds(): Int {
+        return getFreshIds().size
+    }
 }
