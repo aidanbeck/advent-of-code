@@ -49,6 +49,19 @@ class Cafeteria(val puzzleInput: String) {
         return false
 
     }
-    fun getFreshIds() = arrayOf(0)
+
+    fun getFreshIds(): Array<Int> {
+
+        val freshIds = ArrayList<Int>()
+
+        for (id in ids) {
+            if (isIdFresh(id)) {
+                freshIds.add(id)
+            }
+        }
+
+        return freshIds.toTypedArray()
+    }
+
     fun countFreshIds() = 0
 }
