@@ -301,3 +301,16 @@ I've refactored my code to use Longs, giving me 896... which is correct! It also
 **What I Need**
 - getAllPossibleIds: for each range, for each id, detect if a rolling array includes that id. if not, add it to the array. This is probably unoptimized, let's try it anyway!
 - countAllPossibleIds
+
+12/17/25
+I am about to try my implementation. This, I fear, might be a fairly unoptimized implementation. Let's find out how well my ThinkPad can run!
+
+I got a Java OutOfMemory Error and, perhaps but perhaps not unrelated, a notification informing me that Zoom crashed. Whoops! Let's rethink this.
+If I found the highest maximum id (the highest maximum of any range), I could make a boolean array of that size, initialized to "false".
+Then, for each possible id, I could turn that index to "true". Finally, I could count each "true" in the array.
+This would be a big array, but at least it wouldn't search through the ENTIRE list of possible ids for EVERY id.
+
+Alright, it turns out this would be a much bigger array than I anticipated. Yet another solution is needed.
+I think my best bet is sorting the ranges by their minimum. Then, I can clamp the maximum of each range to one below the minimum of the next range, IF the ranges overlap.
+That way, I can just subtract the minimum from the maximum for each range, and then all those together to get the total ids.
+But oh no! What if a range is entirely contained within another range? Will this even happen? I will solve this problem tomorrow!
