@@ -37,7 +37,18 @@ class Cafeteria(val puzzleInput: String) {
 
         return id <= range.max && id >= range.min
     }
-    fun isIdFresh(id: Int) = false
+
+    fun isIdFresh(id: Int): Boolean {
+
+        for (range in ranges) {
+            if (isIdWithinRange(id, range)) {
+                return true
+            }
+        }
+
+        return false
+
+    }
     fun getFreshIds() = arrayOf(0)
     fun countFreshIds() = 0
 }

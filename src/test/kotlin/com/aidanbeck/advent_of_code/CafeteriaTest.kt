@@ -35,7 +35,7 @@ class CafeteriaTest {
     @Test
     fun testParseIds() {
         val cafeteria = Cafeteria(puzzleInput)
-        
+
         val ids = arrayOf(1, 5, 8, 11, 17, 32)
         assertContentEquals(ids, cafeteria.parseIds())
     }
@@ -48,6 +48,19 @@ class CafeteriaTest {
         assertTrue(cafeteria.isIdWithinRange(15, Range(5, 15) ) )
 
         assertFalse(cafeteria.isIdWithinRange(16, Range(5, 15) ) )
+    }
+
+    @Test
+    fun testIsIdFresh() {
+        val cafeteria = Cafeteria(puzzleInput)
+
+        assertTrue(cafeteria.isIdFresh(5))
+        assertTrue(cafeteria.isIdFresh(11))
+        assertTrue(cafeteria.isIdFresh(17))
+
+        assertFalse(cafeteria.isIdFresh(1))
+        assertFalse(cafeteria.isIdFresh(8))
+        assertFalse(cafeteria.isIdFresh(32))
     }
 
     @Test
