@@ -67,9 +67,27 @@ class Cafeteria(val puzzleInput: String) {
         return getFreshIds().size
     }
 
-    fun getAllPossibleIds(): LongArray = longArrayOf(1L)
+    fun getAllPossibleIds(): LongArray {
 
-    fun countAllPossibleIds(): Int = 0
+        //for each range, for each id, detect if a rolling array includes that id. if not, add it to the array. This is probably unoptimized, let's try it anyway!
+
+        val possibleIds = ArrayList<Long>()
+
+        for (range in ranges) {
+            val ids = range.getIds() // Thanks, Day 2!
+            for (id in ids) {
+                if (!possibleIds.contains(id)) {
+                    possibleIds.add(id)
+                }
+            }
+        }
+
+        return possibleIds.toLongArray()
+    }
+
+    fun countAllPossibleIds(): Int {
+        return getAllPossibleIds().size
+    }
 
 
 }
