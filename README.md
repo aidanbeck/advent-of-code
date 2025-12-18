@@ -326,3 +326,8 @@ This is the method I've decided on.
 - sum all the differences together to get the total number of valid ids
 I implemented it, passed my tests, and it still did not work! It says the answer is too high.
 I unfortunately do not have time tonight to try more than my initial implementation idea, so I cannot mess around with it more.
+
+12/17/25
+JUST KIDDING! I couldn't resist and took another look at my comparison signs. I was not accounting for when max's and min's are also equal to the previous max.
+I adjusted my <'s to <='s and got 346240317247002, which was correct!
+This was a fun puzzle, the first one to make me change to a completely different approach.

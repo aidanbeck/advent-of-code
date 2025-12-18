@@ -77,8 +77,8 @@ class Cafeteria(val puzzleInput: String) {
 
             var appliedMinimum = range.min // minimum used in difference calculation. can change based on ranges overlapping
 
-            if (range.max < previousRange.max) { continue } // range max is above the previous max, no ids to count
-            if (range.min < previousRange.max) { // minimum is below the previous maximum, some ids must be skipped
+            if (range.max <= previousRange.max) { continue } // range max is above the previous max, no ids to count
+            if (range.min <= previousRange.max) { // minimum is below the previous maximum, some ids must be skipped
                 appliedMinimum = previousRange.max + 1
             }
 
@@ -86,6 +86,7 @@ class Cafeteria(val puzzleInput: String) {
             totalIdsCount += idsCount
 
             previousRange = range
+            println("$idsCount found in $range.")
         }
 
         return totalIdsCount
