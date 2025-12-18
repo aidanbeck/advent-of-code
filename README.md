@@ -324,4 +324,5 @@ This is the method I've decided on.
 - if the minimum is smaller than the previous max, set the minimum to the previous max +1, skipping over the already counted ids
 - find the difference between the min and max. That is the number of ids within that range
 - sum all the differences together to get the total number of valid ids
-
+I implemented it, passed my tests, and it still did not work! It says the answer is too high.
+I unfortunately do not have time tonight to try more than my initial implementation idea, so I cannot mess around with it more.
