@@ -78,18 +78,16 @@ class CafeteriaTest {
     }
 
     @Test
-    fun testGetAllPossibleIds() {
-
-        val cafeteria = Cafeteria(puzzleInput)
-//        val possibleIds = longArrayOf(3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
-        val possibleIds = longArrayOf(3, 4, 5, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 15) // the order should be unspecific but shhhh....
-
-        assertContentEquals(possibleIds, cafeteria.getAllPossibleIds())
-    }
-
-    @Test
     fun testCountAllPossibleIds() {
+
         val cafeteria = Cafeteria(puzzleInput)
+//        val ranges = arrayOf(
+//            Range(1, 10), // 1, 2, 3, 4, 5, 6, 7, 8, 9, 10  +10 ids
+//            Range(2, 6),  //                                +0  ids
+//            Range(5, 15), // 11, 12, 13, 14, 15             +5  ids
+//            Range(20, 25) // 20, 21, 22, 23, 24, 25         +6  ids
+//        )                 //                                =21 total ids
+
 
         assertEquals(14, cafeteria.countAllPossibleIds())
     }

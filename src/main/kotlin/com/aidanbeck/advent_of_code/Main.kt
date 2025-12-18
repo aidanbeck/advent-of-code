@@ -1189,6 +1189,6 @@ fun main() {
 524852121996852"""
 
     val cafeteria = Cafeteria(puzzleInput)
-    val solution = cafeteria.countFreshIds()
+    val solution = cafeteria.countAllPossibleIds()
     println("The solution is: $solution")
 }

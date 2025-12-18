@@ -314,3 +314,14 @@ Alright, it turns out this would be a much bigger array than I anticipated. Yet 
 I think my best bet is sorting the ranges by their minimum. Then, I can clamp the maximum of each range to one below the minimum of the next range, IF the ranges overlap.
 That way, I can just subtract the minimum from the maximum for each range, and then all those together to get the total ids.
 But oh no! What if a range is entirely contained within another range? Will this even happen? I will solve this problem tomorrow!
+
+12/17/25
+I am coming back to this after my shift at the bank, and toyed around with some new ideas.
+This is the method I've decided on.
+- sort all ranges by minimum
+- for each range
+- skip if the max is larger than the previous max, since there's nothing new to count.
+- if the minimum is smaller than the previous max, set the minimum to the previous max +1, skipping over the already counted ids
+- find the difference between the min and max. That is the number of ids within that range
+- sum all the differences together to get the total number of valid ids
+

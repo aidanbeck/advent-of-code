@@ -67,26 +67,28 @@ class Cafeteria(val puzzleInput: String) {
         return getFreshIds().size
     }
 
-    fun getAllPossibleIds(): LongArray {
+    fun countAllPossibleIds(): Long {
 
-        //for each range, for each id, detect if a rolling array includes that id. if not, add it to the array. This is probably unoptimized, let's try it anyway!
+        val sortedRanges = ranges.sortedBy{ it.min }
+        var totalIdsCount: Long = 0
+        var previousRange = Range(-1, -1)
 
-        val possibleIds = ArrayList<Long>()
+        for (range in sortedRanges) {
 
-        for (range in ranges) {
-            val ids = range.getIds() // Thanks, Day 2!
-            for (id in ids) {
-                if (!possibleIds.contains(id)) {
-                    possibleIds.add(id)
-                }
+            var appliedMinimum = range.min // minimum used in difference calculation. can change based on ranges overlapping
+
+            if (range.max < previousRange.max) { continue } // range max is above the previous max, no ids to count
+            if (range.min < previousRange.max) { // minimum is below the previous maximum, some ids must be skipped
+                appliedMinimum = previousRange.max + 1
             }
+
+            val idsCount = range.max - appliedMinimum + 1
+            totalIdsCount += idsCount
+
+            previousRange = range
         }
 
-        return possibleIds.toLongArray()
-    }
-
-    fun countAllPossibleIds(): Int {
-        return getAllPossibleIds().size
+        return totalIdsCount
     }
 
 
